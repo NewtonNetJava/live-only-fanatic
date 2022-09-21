@@ -1,44 +1,43 @@
-import { Link } from "react-router-dom";
 import TicketQuantityStatus from "./TicketQuantityStatus";
 import ArrowIcon from "../assets/arrow-forward.svg";
-const Card = ({ props }) => {
 
-  const data = props;
-  const online = data.venue_name === "ONLINE"
-  const image = data.image??data.artist_image;
-  const startTime = new Date(data.event_start).toString().substring(0, 21)
+const Card = ({concert}) => {
+    const venue_name = concert['venue_name']
+    const online = venue_name === "ONLINE";
+    const startTime = new Date(concert["event_start"]).toString().substring(0, 21);
+    const image = concert.image ?? concert["artist_image"];
+    const tickets_left = concert['tickets_left']
+    const artist_name = concert['artist_name']
+    return (
+        <>
+            <div className="card">
+                <div className="header">
+                    <img src={image} alt={artist_name}/>
+                </div>
+                <div className="text">
+                    <span className="datetime">{startTime}</span>
+                    <h2 className="title">{artist_name}</h2>
 
-  return (
-    <>
-      <div className="card">
-        <div className="header">
-          <img src={image} alt={data.artist_name} />
-        </div>
-        <div className="text">
-          <h1 className="title">{data.artist_name}</h1>
-
-          {data.tickets_left >= 0 && (
-            <span>
-              Tickets available:
-              <TicketQuantityStatus quantity={data.tickets_left} />
-            </span>
-          )}
-          {online && (
-            <p className="info">Livestream, {startTime}</p>
-          )}
-          {!online && (
-            <p className="info">
-              Live at {data.venue_name}, {startTime}
-            </p>
-          )}
-        </div>
-        <Link to="/" className="btn">
-          <img className="arrow-icon" src={ArrowIcon} />
-        </Link>
-      </div>
-      <span className="line-break"></span>
-    </>
-  );
+                    {tickets_left <= -1 && (
+                        <div className="ticket-content">
+                            <span className="ticket-content__text-online">Livestream</span>
+                        </div>
+                    )}
+                    {!online && <p className="info">Live at {venue_name}</p>}
+                    {tickets_left >= 0 && (
+                        <div className="ticket-content">
+                            <span className="ticket-content__text">Tickets available</span>
+                            <TicketQuantityStatus quantity={tickets_left}/>
+                        </div>
+                    )}
+                </div>
+                <button className="btn">
+                    <img className="arrow-icon" src={ArrowIcon} alt={'>'}/>
+                </button>
+            </div>
+            <span className="line-break"></span>
+        </>
+    );
 };
 
 export default Card;

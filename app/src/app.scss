@@ -4,7 +4,7 @@ $yellow: #ffc561;
 $light-grey:#ddd;
 $gray: #7c7c7c;
 $dark: #141417;
-$dark-grey: #19191D;
+$dark-grey: #1E1F24;
 $orange: #f8671f;
 $purple: #9000B3;
 $error: rgb(194, 0, 0);
@@ -62,6 +62,11 @@ body {
   &:hover {
     filter: brightness(90%);
   }
+}
+
+button {
+  background-color: unset;
+  border: unset;
 }
 
 @media screen and (min-width:760px) {}

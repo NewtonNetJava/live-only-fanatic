@@ -1,6 +1,5 @@
-import hamburgerSvg from '../assets/hamburger.svg'
-import closeSvg from '../assets/close.svg'
-
+import hamburgerSvg from "../assets/hamburger.svg";
+import closeSvg from "../assets/close.svg";
 
 function Hamburger({ isOpen }) {
   return (
@@ -16,6 +15,11 @@ function Hamburger({ isOpen }) {
         }
         #cross {
           display: ${isOpen ? "grid" : "none"};
+        }
+
+        .hamburger img {
+          width: 32px;
+          height: 32px;
         }
         @media (min-width: 767px) {
           .hamburger {

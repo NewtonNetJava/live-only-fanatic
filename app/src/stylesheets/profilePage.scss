@@ -1,78 +1,99 @@
-body {
-    .profile-page{
+.profile-container{
+    background-color: $dark-grey;
+}
+.profile-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 16px auto;
+    background-color: $white;
+
+    #home-link {
+        align-self: center;
+    }
+
+    #profile-title {
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-form {
         display: flex;
         flex-direction: column;
+        align-content: center;
+        margin-top: 7vh;
 
-        #home-link {
-            align-self: center;
-        }
-
-        #profile-title {
-            display: flex;
-            justify-content: center;
-        }
-
-        .profile-form {
+        .form-field {
             display: flex;
             flex-direction: column;
-            align-content: center;
-            margin-top: 7vh;
+            margin-bottom: 8px;
+            justify-content: center;
 
-            .form-field {
-                display: flex;
-                flex-direction: column;
-                margin: 1vh 1vw;
-                justify-content: center;
-
-                .field-name {
-                    flex-grow: 1;
-                    justify-self: flex-start;
-                    align-self: left;
-                    margin-right: 6px;
-                    margin-bottom: 5px;
-                    width: fit-content;
-                }
-
-                .form-input {
-                    justify-self: flex-end;
-                    border-radius: 6px;
-                    height: 3vh;
-                }
-
-                #email {
-                    background-color: gray;
-                    border-style: none;
-                    border: 1px solid black;
-                    padding: 2px 2px;
-                    border-radius: 2px;
-                    // all: unset;
-                   
-
-                    &:hover {
-                        cursor: not-allowed;
-                    }
-                }
+            .field-name {
+                flex-grow: 1;
+                justify-self: flex-start;
+                align-self: left;
+                margin-right: 6px;
+                margin-bottom: 5px;
+                width: fit-content;
             }
 
-            #update {
-                display: flex;
-                flex-direction: column;
-                margin-top: 8vh;
-                font-size: 120%;
-                margin-bottom: 3vh;
+            .form-input {
+                justify-self: flex-end;
+                border-radius: 6px;
+                height: 3vh;
+            }
+
+            #email {
+                background-color: gray;
+                border-style: none;
+                border: 1px solid black;
+                padding: 2px 2px;
+                border-radius: 2px;
+                // all: unset;
+                
+
+                &:hover {
+                    cursor: not-allowed;
+                }
             }
         }
 
-        #sign-out {
-            align-self: center;
-            max-width: fit-content;
-            font-size: 100%;
+        .update-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px;
+            margin: 16px 0;
+            border: 2px solid $dark;
+            &:hover{
+                border: 2px solid $orange;
+                color: $orange;
+            }
+            span{
+                font-size: 18px;
+                font-weight: 500;
+            }
         }
+    }
+
+    .logout-button {
+        min-width: 70%;
+        margin: 16px;
     }
 }
 
 @media screen and (min-width:760px) {}
 
-@media screen and (min-width:1024px) {}
+@media screen and (min-width:1024px) {
+    .profile-page{
+        min-width: 700px;
+        .profile-form{
+            min-width: 600px;
+        }
+    }
+}
 
 @media screen and (min-width:1536px) {}

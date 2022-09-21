@@ -5,12 +5,12 @@ import Logout from "../Logout";
 import SearchBar from "../SearchBar";
 import GlobalContext from "../../context/GlobalContext";
 
-const links = [
+export const links = [
   { href: "/events", name: "Events" },
-  { href: "/artists", name: "Artists" },
+  { href: "/venues", name: "Venues" },
 ];
 
-const profileSubLinks = [
+export const profileSubLinks = [
   { href: "/my-tickets", name: "My tickets" },
   { href: "/profile", name: "My Profile" },
 ];

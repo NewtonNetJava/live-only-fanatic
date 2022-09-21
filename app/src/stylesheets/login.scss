@@ -8,6 +8,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 9999;
 
   .login-form {
     --login-form-width: auto;
@@ -31,33 +32,23 @@
       text-align: center;
 
       a {
-        color: crimson
+    color: $orange;
       }
 
-      button {
-        padding-left: 4px;
-        border: none;
-        background-color: white;
-        color: crimson;
 
-        &:hover {
-          color: rgb(174, 0, 0);
-          text-decoration: underline;
-        }
 
-        button {
-          padding-left: 4px;
-          border: none;
-          background-color: white;
-          color: crimson;
+  button{
+    padding-left: 4px;
+    border: none;
+    background-color: white;
+    color: $orange;
 
-          &:hover {
-            color: rgb(174, 0, 0);
-            text-decoration: underline;
-          }
-        }
-      }
+    &:hover{
+      color: #d6500d;
+      text-decoration: underline;
     }
+  }
+}
 
     &__close-btn {
       position: absolute;
@@ -67,11 +58,14 @@
       background-color: unset;
       font-weight: 700;
       font-size: 24px;
+  cursor: pointer;
     }
 
     &__login-error {
-      color: rgb(174, 0, 0);
+  color: $error;
       margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
     }
 
     @media screen and (min-width: 760px) {
@@ -86,7 +80,7 @@
 .login-btn {
   width: 100%;
   margin: 16px 0;
-  background-color: crimson;
+background-color: $orange;
   color: white;
   outline: none;
   padding: 8px 16px;

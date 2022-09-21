@@ -1,0 +1,121 @@
+section#header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: $dark-grey;
+    height: auto;
+    padding: 32px 0;
+    
+    .image{
+        position: relative;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 300px;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            box-shadow: 4px 4px 8px #191818;
+        } 
+    }
+    h2{
+        font-size: 46px;
+        margin: 16px;
+        text-transform: uppercase;
+        // position: absolute;
+        // top:50%;
+        // right: 50%;
+    }
+
+    .date{
+        color: white;
+    }
+}
+
+section#event{
+    // display: flex;
+    justify-content: center;
+    padding: 24px 24px;
+    background-color: $dark;
+    height: 50vh;
+
+    .event-content{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        
+        
+        .event-text{
+            max-width: 720px;
+            background-color: #F0F0F1;
+            flex-grow: 4;
+            min-height: 30vh;
+            padding: 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            gap: 32px;
+
+            @media screen and (max-width:768px) {
+                flex-direction: column;
+                 padding: 24px;
+            }
+        }
+
+        .event-info-column {
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        
+        .buy-ticket{
+            .buy-container{
+                display: flex;
+                .quantity-counter{
+                    font-weight: 500;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // width: 10vw;
+                    background-color: $yellow;
+                    padding: 4px 8px;
+                    
+                    button{
+                      
+                        &:hover{
+                            color: $dark;
+                        }
+                    }
+
+                    span{
+                        display: inherit;
+                        width: 32px;
+                        height: 24px;
+                        justify-content: center;
+                        align-items: center;
+                        color: $dark;
+                    }
+                }
+                .cart-button{
+                    display: flex;
+                    padding: 4px 8px;
+                    margin: 0 8px;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $yellow;
+                    img#cart{
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+
+        button{
+            text-decoration: none;
+            border: none;
+            background-color: inherit;
+        }
+    }
+
+}

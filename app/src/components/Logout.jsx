@@ -12,7 +12,7 @@ function Logout() {
 
   return (
     <>
-      <button className="custom-red-btn" id="sign-out" onClick={handleLogout}>
+      <button className="custom-button" id="sign-out" onClick={handleLogout}>
         Sign out
       </button>
     </>

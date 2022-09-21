@@ -1,20 +1,27 @@
-.container{
-    margin: 32px 16px;
+.header-title{
+    display: flex;
+    align-items: center;
+    background-color: $dark-grey;
+    width: 100%;
+    height: 15vh;
+
+    h1{
+        color: $white;
+        font-size: 42px;
+        font-weight: 800;
+        margin: 0;
+        padding: 32px;
+        text-transform: uppercase;
+}
+}
+.event-container{
+    max-width: 100vw;
 }
 .card-container{
-    background-color: #fff;
+    margin: 0 auto;
+    background-color: $white;
     padding: 32px 16px;
-    border-radius: 6px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 3px;
-    width: 100%;
-
 }
-
-.container > h1{
-    font-size: 32px;
-    font-weight: 700;
-}
-
 
 
 

@@ -55,6 +55,12 @@
       {"role": "anonymous", "methods": ["POST","GET"]},
       {"role": "user", "methods": ["GET", "DELETE"]}
     ]
+  },
+  
+  {
+    "route": "/data/checkout",
+    "roles":[
+      {"role": "user", "methods": ["GET", "POST"]}
+    ]
   }
-
 ]

@@ -22,15 +22,33 @@ function App() {
             <Routes>
               <>
                 <Route path="/" element={<Homepage />} />
-                <Route path="/profile" element={<ProfilePage />} />
+                <Route
+                  path="/profile"
+                  element={
+                    <RouteGuard>
+                      <ProfilePage />
+                    </RouteGuard>
+                  }
+                />
                 <Route path="/events" element={<EventsPage />} />
                 <Route exact path="/events/:id" element={<EventDetails />} />
-                <Route path="/my-tickets" element={<TicketsPage />} />
+                <Route
+                  path="/my-tickets"
+                  element={
+                    <RouteGuard>
+                      <TicketsPage />
+                    </RouteGuard>
+                  }
+                />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/artists/:id" element={<ArtistPage />} />
                 <Route
                   path="/order-confirmation"
-                  element={<OrderConfirmation />}
+                  element={
+                    <RouteGuard>
+                      <OrderConfirmation />
+                    </RouteGuard>
+                  }
                 />
               </>
             </Routes>

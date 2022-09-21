@@ -1,12 +1,12 @@
-// noinspection JSUnresolvedVariable
-
-import { useState } from "react";
+import GlobalContext from "../context/GlobalContext";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useConcertData } from "../context/EventContext";
 import shopSvg from "../assets/shop.svg";
 
 function EventDetails() {
+  const { auth } = useContext(GlobalContext);
   const { data, getEvents } = useConcertData();
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
@@ -102,37 +102,49 @@ function EventDetails() {
                   >
                     {event.ticket_price} kr
                   </span>
-                  <div className="buy-container">
-                    <div className="quantity-counter">
-                      <button
-                        value={quantity}
-                        onClick={() => {
-                          setQuantity((quantity) => quantity - 1);
-                        }}
-                        disabled={quantity <= 1 || !quantity}
-                      >
-                        -
-                      </button>
-                      <span>{quantity}</span>
-                      <button
-                        value={quantity}
-                        onClick={() => setQuantity((quantity) => quantity + 1)}
-                        disabled={quantity === event.tickets_left}
-                      >
-                        +
-                      </button>
+                  {auth.loggedIn ? (
+                    <>
+                      <div className="buy-container">
+                        <div className="quantity-counter">
+                          <button
+                            value={quantity}
+                            onClick={() => {
+                              setQuantity((quantity) => quantity - 1);
+                            }}
+                            disabled={quantity <= 1 || !quantity}
+                          >
+                            -
+                          </button>
+                          <span>{quantity}</span>
+                          <button
+                            value={quantity}
+                            onClick={() =>
+                              setQuantity((quantity) => quantity + 1)
+                            }
+                            disabled={quantity === event.tickets_left}
+                          >
+                            +
+                          </button>
+                        </div>
+                        <button
+                          className="cart-button"
+                          onClick={handlePurchase}
+                          disabled={
+                            quantity < 1 || quantity > event.tickets_left
+                          }
+                        >
+                          <img src={shopSvg} id="cart" alt="cart-button" />
+                        </button>
+                      </div>
+                      <p style={{ marginTop: 8 }}>
+                        Tickets left: {event.tickets_left}
+                      </p>
+                    </>
+                  ) : (
+                    <div>
+                      <p>Login to buy tickets</p>
                     </div>
-                    <button
-                      className="cart-button"
-                      onClick={handlePurchase}
-                      disabled={quantity < 1 || quantity > event.tickets_left}
-                    >
-                      <img src={shopSvg} id="cart" alt="cart-button" />
-                    </button>
-                  </div>
-                  <p style={{ marginTop: 8 }}>
-                    Tickets left: {event.tickets_left}
-                  </p>
+                  )}
                 </>
               )}
 

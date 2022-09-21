@@ -24,7 +24,9 @@ export default function ({ setIsModalOpen }) {
 
   return (
     <div className="site-navigation">
-      <div>LOGO</div>
+      <Link to="/">
+        <div>LOGO</div>
+      </Link>
       <SearchBar placeholder={"Search"} />
       <div className="navigation-links">
         {links.map((link, index) => {

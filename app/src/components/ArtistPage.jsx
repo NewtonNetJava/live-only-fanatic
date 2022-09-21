@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ArtistEvents from "./ArtistEvents";
-import AudioPlayer from "./AudioPlayer";
 
 
 
@@ -32,16 +31,21 @@ export default function ArtistPage() {
         <div className="artist-page">
             <h1>{name}</h1>
             <img src={image} alt="band picture" />
-            {/* <div className="artist-image" style={{backgroundImage:'url(' + image + ')'}}>
-                <img src={image} alt="band picture" />
-            </div> */}
-            <div className="content">
-                <AudioPlayer id={id} />
-                <div id="event-info">
-                    <div id="upcoming">
-                        <h2>Upcoming events</h2>
-                        <ArtistEvents id={id} />
-                    </div>
+        </div>
+            <h1>{name}</h1>
+      </section>
+      <div id="upcoming">
+                    <h2>Upcoming events</h2>
+            </div>
+      <section id="artist">
+        <div className="artist-content">
+          <div id="artist-text">
+                <p>{bio}</p>
+                <span className="line-break"></span>
+                <ArtistEvents id={id} />
+          </div>
+        </div>
+      </section>
 
                     <div id="artist-bio">
                         <p>{bio}</p>

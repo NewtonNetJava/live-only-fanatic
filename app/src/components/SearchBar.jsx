@@ -1,50 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import "../stylesheets/searchBar.scss";
 import closeSvg from "../assets/close.svg";
 import searchSvg from "../assets/search.svg";
 import useFetch from "../hooks/useFetch";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-function SearchBar({ placeholder }) {
-    const [filteredArtists, setFilteredArtists] = useState([]);
-    const [filteredVenues, setFilteredVenues] = useState([]);
+function SearchBar({placeholder}) {
+    const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
-    const [hasMatches, setHasMatches] = useState(false);
 
-    const { data: artists } = useFetch("/data/artists");
-    const { data: venues } = useFetch("/data/venues");
-
-    function filterArrays(array, searchWord) {
-        array = array.filter(item => item.name.toLowerCase().includes(searchWord.toLowerCase()))
-        return array.filter(item => item.name !== "ONLINE");
-    }
+    const {data: artists} = useFetch("/data/artists");
 
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
+        const newFilter = artists.filter((artist) => {
+            return artist.name.toLowerCase().includes(searchWord.toLowerCase());
+        });
+
         if (searchWord === "") {
-            setFilteredArtists([]);
-            setFilteredVenues([]);
+            setFilteredData([]);
         } else {
-            setFilteredArtists(filterArrays(artists, searchWord));
-            setFilteredVenues(filterArrays(venues, searchWord));
+            setFilteredData(newFilter);
         }
     };
 
     const clearInput = () => {
-        setFilteredArtists([]);
-        setFilteredVenues([]);
+        setFilteredData([]);
         setWordEntered("");
     };
-
-    useEffect(() => {
-        function run() {
-            if (filteredArtists.lenght !== 0 || filteredVenues.length !== 0) setHasMatches(true)
-            else setHasMatches(false);
-        }
-        void run()
-
-    }, [filteredArtists, filteredVenues]);
 
     return (<div className="search">
         <div className="searchInputs">
@@ -55,27 +39,14 @@ function SearchBar({ placeholder }) {
                 onChange={handleFilter}
             />
             <div className="searchIcon">
-                {wordEntered.length > 0 ? (<img src={closeSvg} alt="closeIcon" onClick={clearInput} />) : (
-                    <img src={searchSvg} alt="searchIcon" />)}
+                {wordEntered.length > 0 ? (<img src={closeSvg} alt="closeIcon" onClick={clearInput}/>) : (
+                    <img src={searchSvg} alt="searchIcon"/>)}
             </div>
         </div>
-        {hasMatches && (<div className="dataResult">
-            {filteredArtists.slice(0, 15).map((artist) => {
-                return (<div className="dataItem" key={artist.id} onClick={() => clearInput()}>
-                    <Link to={`/artists/${artist.id}`}>
-                        {artist.name}
-                    </Link>
-
-
-                </div>);
-            })}
-            {filteredVenues.slice(0, 15).map((venue) => {
-                return (<div className="dataItem" key={venue.id} onClick={() => clearInput()}>
-                    <Link to={`/venues/${venue.id}`}>
-                        {venue.name}
-                    </Link>
-
-
+        {filteredData.length !== 0 && (<div className="dataResult" key={artists.id}>
+            {filteredData.slice(0, 15).map((artist) => {
+                return (<div className="dataItem" onClick={() => clearInput()}>
+                    <Link to={`/artist/${artist.id}`}>{artist.name}</Link>
                 </div>);
             })}
         </div>)}

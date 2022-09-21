@@ -2,9 +2,8 @@ import SearchBar from './SearchBar'
 
 function SearchPage() {
 
-
     return <>
-        <SearchBar placeholder="Enter search word" />
+        <SearchBar placeholder="Enter band" />
     </>
 }
 

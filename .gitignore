@@ -132,6 +132,3 @@ dist
 .idea
 *.idea
 .idea/
-app/src/stylesheets/profilePage.css
-app/src/index.css
-app/src/stylesheets/audioPlayer.css

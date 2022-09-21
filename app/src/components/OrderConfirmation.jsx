@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
+import useDidMountEffect from "../hooks/useDidMountEffect";
 
 function OrderConfirmation() {
   const { auth } = useContext(GlobalContext);
@@ -39,15 +40,11 @@ function OrderConfirmation() {
     }
   };
 
-  useEffect(() => {
+  useDidMountEffect(() => {
     fetchData();
-  }, []);
+  }, [auth.id]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      postData();
-    }, 1000);
-  }, [data]);
+  useDidMountEffect(postData, [data]);
 
   return (
     <div className="container" id="order">

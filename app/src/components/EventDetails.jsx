@@ -1,10 +1,10 @@
 import GlobalContext from "../context/GlobalContext";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useConcertData } from "../context/EventContext";
 import shopSvg from "../assets/shop.svg";
-import DirectionButton from './googleMaps/DirectionButton';
+import DirectionButton from "./googleMaps/DirectionButton";
 
 function EventDetails() {
   const { auth } = useContext(GlobalContext);
@@ -152,9 +152,8 @@ function EventDetails() {
 
               {event.venue_name === "ONLINE" && (
                 <>
-                  <Link to={'/livestream/'+id}>
-                    <button>Watch livestream</button>
-
+                  <Link to={"/livestream/" + id} className="livestream-button">
+                    Watch livestream
                   </Link>
                 </>
               )}

@@ -127,6 +127,14 @@ section#event{
             border: none;
             background-color: inherit;
         }
+
+        .livestream-button{
+            background-color: $error;
+            color: $white;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
     }
 
 }

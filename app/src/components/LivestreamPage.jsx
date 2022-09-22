@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {useConcertData} from "../context/EventContext";
 import VideoComponent from "./VideoComponent";
@@ -8,31 +8,21 @@ function LivestreamPage() {
     const {data, getEvents} = useConcertData();
     const {id} = useParams();
     useEffect(() => getEvents(), []);
-    let stream_id
     const {
-        data: stream
-    } = useFetch('/data/concerts_videos/' + id)
-    useEffect(() => {
-        if (stream) {
-            stream_id = stream.video_id
-        }
-    }, [stream])
+        data: streams
+    } = useFetch('/data/streams_concerts')
 
-    const event = data?.find((e) => {
-        return e.id === parseInt(id);
-    });
-    console.log(event);
+    const event = data?.find(e => e.id === parseInt(id))
 
-    if (!event) {
-        return <></>;
-    }
+    const stream = streams?.find(s => s["concert_id"] === parseInt(id))
 
+    if (!stream) return <></>;
     return (
         <>
             <div className="livestream">
                 <div className="livestream__content">
                     <div className="video">
-                        <VideoComponent stream_id={stream_id}/>
+                        <VideoComponent stream_id={stream.stream_id}/>
                     </div>
                     <div className="livestream__title">
                         <h1>{event.artist_name}</h1>

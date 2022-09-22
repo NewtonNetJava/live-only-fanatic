@@ -1,7 +1,7 @@
 // noinspection JSUnresolvedVariable
 import { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import { useConcertData } from "../context/EventContext";
 import shopSvg from "../assets/shop.svg";
 import DirectionButton from './googleMaps/DirectionButton';
@@ -139,7 +139,10 @@ function EventDetails() {
 
               {event.venue_name === "ONLINE" && (
                 <>
-                  <span>Watch livestream</span>
+                  <Link to={'/livestream/'+id}>
+                    <button>Watch livestream</button>
+
+                  </Link>
                 </>
               )}
             </div>

@@ -12,7 +12,7 @@ export default function ({stream_id}) {
             videoPlayer.current.controls = true;
 
             if (videoPlayer.current.canPlayType('video/mp4')) {
-                videoPlayer.current.setAttribute('src', '/data/video-stream/' + stream_id);
+                videoPlayer.current.setAttribute('src', '/data/video-stream/' + stream_id.toString());
             videoPlayer.current.play()
             }
         }

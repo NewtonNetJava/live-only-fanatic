@@ -12,7 +12,6 @@ import { GlobalProvider } from "./context/GlobalContext.jsx";
 import RouteGuard from "./components/RouteGard";
 import { EventContext } from "./context/EventContext";
 import LivestreamPage from "./components/LivestreamPage";
-import VenuePage from "./components/VenuePage";
 import VenueDetails from "./components/VenueDetails";
 import VenuePage from "./components/VenuePage";
 

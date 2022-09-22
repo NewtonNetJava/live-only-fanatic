@@ -1,27 +1,27 @@
 .card {
-  display: flex;
-  justify-content: space-around;
-  background: $white;
-  max-width: 500px;
+   display: flex;
+   justify-content: space-around;
+   background: $white;
+   max-width: 500px;
    height: auto;
-  width: auto;
+   width: auto;
    margin: 8px auto;
-  flex-grow: 1;
-  flex: 1 1 0px;
+   flex-grow: 1;
+   flex: 1 1 0px;
 
 
   .header {
       display: none;
-    background-size: cover;
+      background-size: cover;
       width: 10vw;
       align-items: center;
     img {
       width: 100%;
       object-fit: cover;
-         aspect-ratio: 1/1;
+      aspect-ratio: 1/1;
       object-position: top center;
-    }
-  }
+      }
+   }
 
   .text {
     display: inherit;
@@ -34,18 +34,18 @@
          font-size: 17px;
          font-weight: 400;
          color:$gray;
-    }
+      }
 
     .title {
          font-weight: 600;
          font-size: 20px;
          color: $orange;
-      text-align: left;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+         text-align: left;
+         text-transform: uppercase;
+         letter-spacing: 0.1em;
          flex-grow: 2;
          margin-bottom: 8px;
-    }
+      }
 
       .info{
          margin-bottom: 8px;
@@ -54,8 +54,8 @@
 
       .ticket-content {
          display: flex;
-      color: $gray;
-      margin-top: 8px;
+         color: $gray;
+         margin-top: 8px;
          border: 1px solid $gray;
          padding: 4px 8px;
          justify-content:space-between;
@@ -74,26 +74,27 @@
    }
 
   .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: $orange;
-    color: $white;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-align: center;
-    transition: 250ms;
+      color: $white;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+      transition: 250ms;
       border: unset;
       cursor: pointer;
-    &:hover {
+
+      &:hover {
          background: #d6500d;
-      transition: 200ms;
-    }
-  }
+         transition: 200ms;
+      }
+   }
 }
 
 .line-break {
-  display: block;
+   display: block;
    margin: 4px auto;
    border-bottom: 1px solid #8c8c8c55;
    max-width: 90vw;
@@ -117,7 +118,7 @@
       }
     img {
       max-width: fit-content;
-    }
+      }
   }
 
 }

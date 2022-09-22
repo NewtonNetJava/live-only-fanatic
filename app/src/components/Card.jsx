@@ -3,7 +3,7 @@ import ArrowIcon from "../assets/arrow-forward.svg";
 
 const Card = ({concert}) => {
     const venue_name = concert['venue_name']
-    const online = venue_name === "ONLINE";
+    const online = venue_name == "ONLINE";
     const startTime = new Date(concert["event_start"]).toString().substring(0, 21);
     const image = concert.image ?? concert["artist_image"];
     const tickets_left = concert['tickets_left']

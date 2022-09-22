@@ -30,7 +30,7 @@ export default function (props) {
         }
 
         void loadAudios()
-    }, [])
+    }, [id])
 
     useEffect(playAudio, [currentSong])
 

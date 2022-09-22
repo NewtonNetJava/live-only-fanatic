@@ -6,8 +6,8 @@
     margin: 1vh 1vw;
     border: 1px solid $orange;
     padding: 8px;
-    background-color: $dark-grey;
-    width: 50%;
+    background-color: rgb(49, 49, 49);
+    width: fit-content;
 
     #user-info{
         display: flex;
@@ -36,7 +36,8 @@
             width: 50%;
             margin: 2px;
             border-radius: 4px;
-            
+            color: $black;
+            background-color: $white;  
             &:hover{
                 cursor: pointer;
             }

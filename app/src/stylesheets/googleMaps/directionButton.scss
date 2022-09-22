@@ -3,12 +3,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid lightgrey;
+    border: 1px solid $light-grey;
     border-radius: 6px;
     box-shadow: 3px 3px 3px gray;
     font-size: 110%;
     width:fit-content;
     padding: 6px;
+    background-color: $white;
 
     &:hover{
         cursor: pointer;

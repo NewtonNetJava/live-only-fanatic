@@ -5,7 +5,7 @@ const RouteGuard = ({ children }) => {
   const { auth } = useContext(GlobalContext);
 
   // render your error message here
-  if (!auth.isLoggedIn) return <>Access denied</>;
+  if (!auth.loggedIn) return <>Access denied</>;
 
   return children;
 };

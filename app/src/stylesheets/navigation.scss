@@ -31,10 +31,10 @@
 
 .sub-navigation {
      position: absolute;
-     top: 24px;
      background-color: white;
      padding: 16px 24px;
      color: black;
+     z-index: 50;
    
 
      &__link {

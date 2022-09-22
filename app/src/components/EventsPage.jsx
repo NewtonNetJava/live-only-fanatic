@@ -20,17 +20,12 @@ function EventsPage() {
       </div>
       <div className="event-container">
         <div className="card-container">
+          <span className="line-break"></span>
           {error && <div>{error}</div>}
           {isPending && <div>Loading...</div>}
           {concerts &&
             concerts.map((concert) => (
-              <Link
-                to={{ pathname: `/events/${concert.id}` }}
-                state={{ concert: concert }}
-                key={concert.id}
-              >
-                <Card concert={concert} />
-              </Link>
+                <Card concert={concert} key={concert.id}/>
             ))}
         </div>
       </div>

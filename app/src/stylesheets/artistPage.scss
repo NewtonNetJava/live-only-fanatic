@@ -1,121 +1,163 @@
-.artist-page {
-    // width: 100vw;
-    // height: 100vh;
-    margin: 3vh 3vw;
-    display: grid;
-    grid-template-columns: 10vw 1fr 1fr 10vw;
-    grid-auto-rows: minmax(10px, fit-content);
-    grid-template-areas:
-        ". header header ."
-        ". img img ."
-        ". main main ."
-        ". main main .";
-    justify-items: center;
+section#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: $dark-grey;
+  height: auto;
+  padding: 32px 0;
 
-    h1 {
-        grid-area: header;
-    }
-
+  .image {
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
     img {
-        object-fit: cover;
-        aspect-ratio: 16/9;
-        width: 80%;
-        justify-items: center;
-        grid-area: img;
-        margin-bottom: 10px;
-
+      width: 300px;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      box-shadow: 4px 4px 8px #191818;
     }
+  }
+  h1{
+    text-align: center;
+  }
 
-    // .artist-image {
-    //     grid-area: img;
-    //     background-size: cover;
-
-    //     // display: grid;
-    //     // justify-content: center;
-
-    //     >img {
-    //         visibility: hidden;
-    //         object-fit: cover;
-    //         aspect-ratio: 16/9;
-    //         width: 100%;
-    //     }
-
-    // }
-
-    .content {
-        grid-area: main;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-
-        #event-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            #upcoming {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                align-items: center;
-                background-color: #659dbd;
-                margin-bottom: 3vh;
-                padding-bottom: 2vh;
-                padding-left: 2vh;
-                padding-right: 2vh;
-
-                >h2 {
-                    font-size: 120%;
-                    margin: 10px;
-                }
-
-                .artist-event {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr 1fr;
-                    border: 1px solid gray;
-                    background-color: #f6f6f6;
-                    width: 90%;
-                    color: gray;
-                    align-items: center;
-                    justify-items: center;
-
-                    .info {
-                        display: flex;
-
-                        >p {
-                            font-size: 60%;
-                            color: black;
-                            padding: 5px;
-                        }
-                    }
-
-
-                }
-            }
-
-            #artist-bio {
-                text-align: left;
-
-                p {
-                    margin: 0.5vh 0.5vw;
-                }
-            }
-        }
-    }
+  h2 {
+    font-size: 46px;
+    margin: 16px;
+    text-transform: uppercase;
+    // position: absolute;
+    // top:50%;
+    // right: 50%;
+  }
 }
 
+section#artist {
+  // display: flex;
+  justify-content: center;
+  padding: 24px 24px;
+  background-color: $dark;
+  height: 50vh;
 
-// #artist-page {
-//     
-//
+  .artist-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
-//   
-//     .bot {
-//         grid-area: bot;
+      }
 
-//         p {
-//            
+    .artist-text{
+      background-color: $white;
+      flex-grow: 4;
+      min-height: 30vh;
+      padding: 32px 48px;
+      .bio{
+        margin: 8px 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 24px;
+      }
+    }
+
+    .artist-info{
+        margin-bottom: 16px;
+        font-size: 18px;
+  }
+  .event-title{
+    background-color: $white;
+    margin-top: 16px;
+    padding: 24px;
+  }
+}
+
+// .artist-page {
+//     margin: 3vh 3vw;
+//     display: grid;
+//     grid-template-columns: 10vw 1fr 1fr 10vw;
+//     grid-auto-rows: minmax(10px, fit-content);
+//     grid-template-areas:
+//         ". header header ."
+//         ". img img ."
+//         ". main main ."
+//         ". main main .";
+//     justify-items: center;
+
+//     h1 {
+//         grid-area: header;
+//     }
+
+//     img {
+//         object-fit: cover;
+//         justify-items: center;
+//         grid-area: img;
+//         margin-bottom: 10px;
+
+//     }
+
+//     .content {
+//         grid-area: main;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         width: 100%;
+
+//         #event-info {
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+
+//             #upcoming {
+//                 display: flex;
+//                 flex-direction: column;
+//                 width: 100%;
+//                 align-items: center;
+//                 background-color: #F0F0F1;
+//                 padding-bottom: 2vh;
+//                 padding-left: 2vh;
+//                 padding-right: 2vh;
+
+//                 >h2 {
+//                     font-size: 140%;
+//                 }
+
+//                 .artist-event {
+//                     display: grid;
+//                     grid-template-columns: 1fr 1fr 1fr 1fr;
+//                     border: 1px solid gray;
+//                     background-color: #f6f6f6;
+//                     width: 90%;
+//                     color: gray;
+//                     align-items: center;
+//                     justify-items: center;
+
+//                     .info {
+//                         display: flex;
+
+//                         >p {
+//                             font-size: 100%;
+//                             color: black;
+//                             padding-bottom: 10vh;
+//                         }
+//                     }
+
+//                 }
+//             }
+
+//             #artist-bio {
+//                 text-align: left;
+//                 background-color: $white;
+//                 border-radius: 8px;
+//                 padding: 14px;
+//                 p {
+//                     font-size: 120%;;
+//                     margin: 0.5vh 0.5vw;
+//                     padding-bottom: 10px;
+//                 }
+//             }
 //         }
 //     }
 // }

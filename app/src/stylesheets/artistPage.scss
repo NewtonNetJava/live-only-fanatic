@@ -32,14 +32,10 @@
         font-size: 46px;
         margin: 16px;
         text-transform: uppercase;
-        // position: absolute;
-        // top:50%;
-        // right: 50%;
       }
     }
 
     #artist {
-      // display: flex;
       justify-content: center;
       padding: 24px 24px;
       background-color: $dark;
@@ -62,7 +58,7 @@
           background-color: $light-grey;
           padding: 10px;
 
-          .bio{
+          .bio {
             margin-bottom: 10px;
           }
 
@@ -85,93 +81,3 @@
       }
     }
   }
-
-
-
-  // .artist-page {
-  //     margin: 3vh 3vw;
-  //     display: grid;
-  //     grid-template-columns: 10vw 1fr 1fr 10vw;
-  //     grid-auto-rows: minmax(10px, fit-content);
-  //     grid-template-areas:
-  //         ". header header ."
-  //         ". img img ."
-  //         ". main main ."
-  //         ". main main .";
-  //     justify-items: center;
-
-  //     h1 {
-  //         grid-area: header;
-  //     }
-
-  //     img {
-  //         object-fit: cover;
-  //         justify-items: center;
-  //         grid-area: img;
-  //         margin-bottom: 10px;
-
-  //     }
-
-  //     .content {
-  //         grid-area: main;
-  //         display: flex;
-  //         flex-direction: column;
-  //         align-items: center;
-  //         width: 100%;
-
-  //         #event-info {
-  //             display: flex;
-  //             flex-direction: column;
-  //             align-items: center;
-
-  //             #upcoming {
-  //                 display: flex;
-  //                 flex-direction: column;
-  //                 width: 100%;
-  //                 align-items: center;
-  //                 background-color: #F0F0F1;
-  //                 padding-bottom: 2vh;
-  //                 padding-left: 2vh;
-  //                 padding-right: 2vh;
-
-  //                 >h2 {
-  //                     font-size: 140%;
-  //                 }
-
-  //                 .artist-event {
-  //                     display: grid;
-  //                     grid-template-columns: 1fr 1fr 1fr 1fr;
-  //                     border: 1px solid gray;
-  //                     background-color: #f6f6f6;
-  //                     width: 90%;
-  //                     color: gray;
-  //                     align-items: center;
-  //                     justify-items: center;
-
-  //                     .info {
-  //                         display: flex;
-
-  //                         >p {
-  //                             font-size: 100%;
-  //                             color: black;
-  //                             padding-bottom: 10vh;
-  //                         }
-  //                     }
-
-  //                 }
-  //             }
-
-  //             #artist-bio {
-  //                 text-align: left;
-  //                 background-color: $white;
-  //                 border-radius: 8px;
-  //                 padding: 14px;
-  //                 p {
-  //                     font-size: 120%;;
-  //                     margin: 0.5vh 0.5vw;
-  //                     padding-bottom: 10px;
-  //                 }
-  //             }
-  //         }
-  //     }
-  // }

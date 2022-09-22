@@ -7,6 +7,7 @@ import SearchBar from "../SearchBar";
 import SignUp from "../SignUp";
 import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 import GlobalContext from "../../context/GlobalContext";
+import Homebutton from "../HomeButton";
 
 export const LOGIN = "login";
 export const SIGN_UP = "signup";
@@ -51,9 +52,7 @@ function MobileNavigation({ setIsModalOpen }) {
         <div className="hamburger" onClick={toggleHamburger}>
           <Hamburger isOpen={hamburgerOpen} />
         </div>
-        <Link to="/" id="home-button">
-          <div>Logo</div>
-        </Link>
+        <Homebutton />
         <button
           className="mobile-navigation-header__search-button"
           onClick={toggleSearch}

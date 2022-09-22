@@ -14,7 +14,10 @@ export default function ({ setIsModalOpen, setModalType }) {
   const [error, setError] = useState("");
   const containerRef = useRef(null);
 
-  useClickOutside(containerRef, () => setIsModalOpen(false));
+  useClickOutside(containerRef, () => {
+    setIsModalOpen(false),
+    setModalType(LOGIN)
+  })
 
   const navigate = useNavigate();
 
@@ -52,7 +55,10 @@ export default function ({ setIsModalOpen, setModalType }) {
         {error && <span className="login-form__login-error">{error}</span>}
         <button
           className="login-form__close-btn"
-          onClick={() => setIsModalOpen(false)}
+          onClick={() => {
+            setIsModalOpen(false),
+            setModalType(LOGIN)
+          }}
         >
           x
         </button>

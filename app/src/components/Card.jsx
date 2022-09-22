@@ -2,48 +2,51 @@ import TicketQuantityStatus from "./TicketQuantityStatus";
 import ArrowIcon from "../assets/arrow-forward.svg";
 import { Link } from "react-router-dom";
 
-const Card = ({concert}) => {
-    const concert_id = concert['id']
-    const venue_name = concert['venue_name']
-    const online = venue_name == "ONLINE";
-    const startTime = new Date(concert["event_start"]).toString().substring(0, 21);
-    const image = concert.image ?? concert["artist_image"];
-    const tickets_left = concert['tickets_left']
-    const artist_name = concert['artist_name']
-    return (
-        <>
-            <div className="card">
-                <div className="header">
-                    <img src={image} alt={artist_name}/>
-                </div>
-                <div className="text">
-                    <span className="datetime">{startTime}</span>
-                    <h2 className="title">{artist_name}</h2>
+const Card = ({ concert }) => {
+  const concert_id = concert["id"];
+  const venue_name = concert["venue_name"];
+  const online = venue_name == "ONLINE";
+  const startTime = new Date(concert["event_start"])
+    .toString()
+    .substring(0, 21);
+  const image = concert.image ?? concert["artist_image"];
+  const tickets_left = concert["tickets_left"];
+  const artist_name = concert["artist_name"];
+  return (
+    <>
+      <div className="card">
+        <div className="header">
+          <img src={image} alt={artist_name} />
+        </div>
+        <div className="text">
+          <span className="datetime">{startTime}</span>
+          <h2 className="title">{artist_name}</h2>
 
-                    {tickets_left <= -1 && (
-                        <div className="ticket-content">
-                            <span className="ticket-content__text-online">Livestream</span>
-                        </div>
-                    )}
-                    {!online && <p className="info">Live at {venue_name}</p>}
-                    {tickets_left >= 0 && (
-                        <div className="ticket-content">
-                            <span className="ticket-content__text">Tickets available</span>
-                            <TicketQuantityStatus quantity={tickets_left}/>
-                        </div>
-                    )}
-                </div>
-                
-                <button className="btn">
-                    <Link to={`/events/${concert_id}`} >
-                        <img className="arrow-icon" src={ArrowIcon} alt={'>'}/>
-                    </Link>
-                </button>
-                
+          {tickets_left <= -1 && (
+            <div className="ticket-content">
+              <span className="ticket-content__text-online">Livestream</span>
             </div>
-            <span className="line-break"></span>
-        </>
-    );
+          )}
+          {!online && <p className="info">Live at {venue_name}</p>}
+          {tickets_left >= 0 && (
+            <div className="ticket-content">
+              <span className="ticket-content__text">Tickets available</span>
+              <TicketQuantityStatus quantity={tickets_left} />
+            </div>
+          )}
+        </div>
+
+        <Link
+          to={{ pathname: `/events/${concert.id}` }}
+          state={{ concert: concert }}
+          className="btn"
+        >
+          <img className="arrow-icon" src={ArrowIcon} alt={">"} />
+        </Link>
+      </div>
+      <span className="line-break"></span>
+    </>
+  );
 };
 
 export default Card;

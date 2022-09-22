@@ -10,6 +10,10 @@
         font-weight: bolder;
         color: whitesmoke;
         text-decoration: none;
+        span{
+            color: $dark;
+            margin-right: 2px;
+        }
     }
 
     @media screen and (max-width: 760px) {

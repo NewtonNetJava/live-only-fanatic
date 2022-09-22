@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import SignUp from "../SignUp";
 import useLockBodyScroll from "../../hooks/useLockBodyScroll";
+import GlobalContext from "../../context/GlobalContext";
 
 export const LOGIN = "login";
 export const SIGN_UP = "signup";
@@ -26,6 +27,7 @@ function SearchIcon() {
 function MobileNavigation({ setIsModalOpen }) {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { auth } = useContext(GlobalContext);
 
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
@@ -77,14 +79,16 @@ function MobileNavigation({ setIsModalOpen }) {
               );
             })}
           </div>
-          <button
-            className="custom-button hamburger-sign-up-button"
-            onClick={() => {
-              setIsModalOpen(true);
-            }}
-          >
-            Login
-          </button>
+          {!auth.loggedIn && (
+            <button
+              className="custom-button hamburger-sign-up-button"
+              onClick={() => {
+                setIsModalOpen(true);
+              }}
+            >
+              Login
+            </button>
+          )}
         </div>
       </div>
 

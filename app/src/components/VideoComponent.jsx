@@ -10,6 +10,7 @@ export default function ({stream_id}) {
             videoPlayer.current["style"].width = '100%'
 
             videoPlayer.current.controls = true;
+            videoPlayer.current.volume = 0.1;
 
             if (videoPlayer.current.canPlayType('video/mp4')) {
                 videoPlayer.current.setAttribute('src', '/data/video-stream/' + stream_id.toString());

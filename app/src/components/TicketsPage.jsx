@@ -1,69 +1,61 @@
 import useFetch from "../hooks/useFetch";
 import Ticket from "./Tickets";
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useContext, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 
 function TicketsPage() {
-    const { error, isPending, data: tickets } = useFetch("/data/user_tickets_details");
-    const { auth } = useContext(GlobalContext);
-    const [filteredTickets, setFilteredTickets] = useState([]);
+  const {
+    error,
+    isPending,
+    data: tickets,
+  } = useFetch("/data/user_tickets_details");
+  const { auth } = useContext(GlobalContext);
+  const [filteredTickets, setFilteredTickets] = useState([]);
 
+  useEffect(() => {
+    async function load() {
+      let rawResponse = await fetch("/data/login");
+      if (rawResponse.status === 401) {
+        alert("Sign in to display your ticket(s)!");
+        window.location.replace("http://127.0.0.1:5173/");
+      }
+      if (rawResponse.ok) {
+        let response = await rawResponse.json();
+      }
+    }
+    load();
+  }, []);
 
-    useEffect(() => {
-        async function load() {
-            let rawResponse = await fetch('/data/login')
-            console.log(rawResponse.status.type);
-            if (rawResponse.status === 401) {
-                alert("Sign in to display your ticket(s)!");
-                window.location.replace("http://127.0.0.1:5173/");
-            } if (rawResponse.ok) {
-                let response = await rawResponse.json();
-
-            }
+  useEffect(() => {
+    setTimeout(() => {
+      function filterTickets() {
+        if (tickets) {
+          const filTickets = tickets.filter(
+            (ticket) => ticket.user_id == auth.id
+          );
+          setFilteredTickets(filTickets);
         }
-        load()
-    }, [])
-    console.log(tickets);
-    useEffect(() => {
-        setTimeout(() => {
-            function filterTickets() {
-                if (tickets) {
-                    const filTickets = tickets.filter(ticket => ticket.user_id == auth.id)
-                    setFilteredTickets(filTickets)
-                }
-            }
-            filterTickets()
-        }, 100)
-    }, [tickets])
+      }
+      filterTickets();
+    }, 100);
+  }, [tickets]);
 
-
-
-    console.log(filteredTickets)
-
-    // if (!filteredTickets) {
-    //     return <>
-    //         <div className="card-container">
-    //             <h1>My Tickets No platipussy</h1>
-    //         </div>
-    //     </>
-    // }
-    return (
-        <>
-            <h1 className="ticket-header">My tickets</h1>
-            <div className="container">
-                {auth.loggedIn && (
-                    <div className="card-container">
-                        {error && <div>{error}</div>}
-                        {isPending && <div>Loading...</div>}
-                        {filteredTickets &&
-                            filteredTickets.map((ticket) => <Ticket key={ticket} props={ticket} />)}
-                    </div>
-                )}
-
-            </div>
-        </>
-    );
-
-
+  return (
+    <>
+      <h1 className="ticket-header">My tickets</h1>
+      <div className="container">
+        {auth.loggedIn && (
+          <div className="card-container">
+            {error && <div>{error}</div>}
+            {isPending && <div>Loading...</div>}
+            {filteredTickets &&
+              filteredTickets.map((ticket) => (
+                <Ticket key={ticket} props={ticket} />
+              ))}
+          </div>
+        )}
+      </div>
+    </>
+  );
 }
 export default TicketsPage;

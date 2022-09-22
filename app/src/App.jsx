@@ -12,6 +12,7 @@ import { GlobalProvider } from "./context/GlobalContext.jsx";
 import RouteGuard from "./components/RouteGard";
 import { EventContext } from "./context/EventContext";
 import VenueDetails from "./components/VenueDetails";
+import BackToTopButton from "./components/BackToTopButton";
 import VenuePage from "./components/VenuePage";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <EventContext>
           <BrowserRouter>
             <Nav />
+            <BackToTopButton />
             <Routes>
               <>
                 <Route path="/" element={<Homepage />} />

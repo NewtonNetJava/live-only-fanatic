@@ -27,26 +27,29 @@ export default function ArtistPage() {
 
   return (
     <>
-      <div className="artist-page">
-        <h1>{name}</h1>
-        <img src={image} alt="band picture" />
-        {/* <div className="artist-image" style={{backgroundImage:'url(' + image + ')'}}>
-                <img src={image} alt="band picture" />
-            </div> */}
-        <div className="content">
-          <AudioPlayer id={id} />
-          <div id="event-info">
-            <div id="upcoming">
-              <h2>Upcoming events</h2>
-              <ArtistEvents id={id} />
-            </div>
-
-            <div id="artist-bio">
-              <p>{bio}</p>
-            </div>
+      <section id="header">
+        <div className="image">
+          <img src={image} alt="band picture" />
+        </div>
+        <div className="artist-page">
+          <h1>{name}</h1>
+          <div className="audio-player">
+            <AudioPlayer id={id} />
           </div>
         </div>
-      </div>
+      </section>
+      <section id="artist">
+        <div className="event-info">
+          <div className="event-title">
+            <h2>Upcoming events</h2>
+            <ArtistEvents id={id} />
+          </div>
+          <div className="artist-text">
+            <h2 className="bio">Bio</h2>
+              <p>{bio}</p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

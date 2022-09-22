@@ -1,6 +1,5 @@
 import Carousel from "./Carousel.jsx";
 import useFetch from "../hooks/useFetch.jsx";
-import VideoComponent from "./VideoComponent";
 
 export default function HomePage() {
 
@@ -16,7 +15,7 @@ export default function HomePage() {
     return (
         <>
             <h1 style={{display:"none"}}>Homepage</h1>
-            <Carousel items={onlineConcerts} style={'Buttons'} type={'/events/'} uid={'online'}/>
+            <Carousel items={onlineConcerts} style={'Counter'} type={'/events/'} uid={'online'}/>
             <Carousel items={offlineConcerts} style={'Counter'} type={'/events/'} uid={'offline'}/>
         </>
     );

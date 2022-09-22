@@ -2,6 +2,7 @@ import useFetch from "../hooks/useFetch";
 import Ticket from "./Tickets";
 import { useEffect, useContext, useState } from 'react';
 import GlobalContext from "../context/GlobalContext";
+import BackToTopButton from "./BackToTopButton"
 
 function TicketsPage() {
     const { error, isPending, data: tickets } = useFetch("/data/user_tickets_details");
@@ -47,6 +48,7 @@ function TicketsPage() {
                             filteredTickets.map((ticket) => <Ticket key={ticket} props={ticket} />)}
                     </div>
                 )}
+                <BackToTopButton />
 
             </div>
         </>

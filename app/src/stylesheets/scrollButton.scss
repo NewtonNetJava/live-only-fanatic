@@ -1,0 +1,12 @@
+.scrollButton {
+    display: flex;
+    color: black;
+    background-color: green($color: #000000);
+    position: relative;
+    z-index: 100000000;
+    width: 30vw;
+    height: 1vh;
+    border: 1px solid black;
+    justify-content: center;
+    margin-bottom: 1000px;
+}

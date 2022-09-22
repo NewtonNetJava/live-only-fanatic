@@ -11,6 +11,7 @@ export default function Directions(props) {
     const id = parseInt(props['id']);
     const [isVisible, setIsVisible] = useState(false);
     const [direction, setDirection] = useState("");
+    const [venue, setVenue] = useState({});
     
     useEffect(() => {
         async function load() {
@@ -18,13 +19,17 @@ export default function Directions(props) {
             if (rawResponse.ok) {
                 const response = await rawResponse.json();
                 setDirection(response.filter(event => event.id === id)[0].direction);
-                document.getElementById('map-view').src = direction;
+                setVenue(response.filter(event => event.id === id)[0])
+                if(direction){
+                   document.getElementById('map-view').src = direction; 
+                }
             }
         }
         load()
     },[direction])
 
-
+    if (!venue.direction) return <></>
+    
     return <>
         <div className="direction-button" onClick={() => setIsVisible(true)}>Get Directions
             <img src={ArrowCircleRight} id="arrow-circle-right" alt="icon" />

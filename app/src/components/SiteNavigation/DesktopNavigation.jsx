@@ -4,6 +4,7 @@ import useClickOutside from "../../hooks/useClickOutside";
 import Logout from "../Logout";
 import SearchBar from "../SearchBar";
 import GlobalContext from "../../context/GlobalContext";
+import Homebutton from "../HomeButton";
 
 export const links = [
   { href: "/events", name: "Events" },
@@ -24,7 +25,7 @@ export default function ({ setIsModalOpen }) {
 
   return (
     <div className="site-navigation">
-      <div>LOGO</div>
+      <Homebutton />
       <SearchBar placeholder={"Search"} />
       <div className="navigation-links">
         {links.map((link, index) => {

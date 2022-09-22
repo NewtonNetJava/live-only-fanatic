@@ -12,6 +12,10 @@ import { GlobalProvider } from "./context/GlobalContext.jsx";
 import RouteGuard from "./components/RouteGard";
 import { EventContext } from "./context/EventContext";
 import LivestreamPage from "./components/LivestreamPage";
+import VenuePage from "./components/VenuePage";
+import VenueDetails from "./components/VenueDetails";
+import VenuePage from "./components/VenuePage";
+
 function App() {
   return (
     <>
@@ -29,6 +33,8 @@ function App() {
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/artists/:id" element={<ArtistPage />} />
                 <Route path="/livestream/:id" element={<LivestreamPage />} />
+                 <Route path="/venues/:id" element={<VenueDetails />} />
+                <Route path="/venues" element={<VenuePage />} />
                 <Route
                   path="/order-confirmation"
                   element={<OrderConfirmation />}

@@ -1,10 +1,10 @@
 // noinspection JSUnresolvedVariable
-
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useConcertData } from "../context/EventContext";
 import shopSvg from "../assets/shop.svg";
+import DirectionButton from './googleMaps/DirectionButton';
 
 function EventDetails() {
   const { data, getEvents } = useConcertData();
@@ -79,6 +79,7 @@ function EventDetails() {
               <p className="event-info-column">Location: {event.location}</p>
               <p className="event-info-column">Date: {formatStartDate}</p>
               <p className="event-info-column">Venue: {event.venue_name}</p>
+              <DirectionButton id={event.venue_id}/>
             </div>
             <div className="buy-ticket">
               {event.venue_name !== "ONLINE" && (

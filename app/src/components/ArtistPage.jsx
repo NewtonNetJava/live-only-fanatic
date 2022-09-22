@@ -43,8 +43,6 @@ export default function ArtistPage() {
 
             <div id="artist-bio">
               <p>{bio}</p>
-              <p>{bio}</p>
-              <p>{bio}</p>
             </div>
           </div>
         </div>

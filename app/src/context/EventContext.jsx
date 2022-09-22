@@ -12,7 +12,7 @@ export const EventContext = ({ children }) => {
   function getEvents() {
     const abortCont = new AbortController();
 
-    fetch("/data/concert_details", { signal: abortCont.signal })
+    fetch("/data/filtered_concert_details", { signal: abortCont.signal })
       .then((res) => {
         if (!res.ok) {
           throw Error("Could not fetch the data for that resource");

@@ -1,28 +1,31 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
-const videoPlayer = new HTMLVideoElement()
-
-videoPlayer.style.width = '100%'
-
-videoPlayer.controls = true;
 
 export default function ({stream_id}) {
-    function playVideo(id) {
-        if (videoPlayer.canPlayType('video/mp4')) {
-            videoPlayer.setAttribute('src', '/data/video-stream/' + id);
-        }
-    }
-
-
+    const videoPlayer = useRef()
     useEffect(() => {
-        document.querySelector('#stream').appendChild(videoPlayer)
-        playVideo(stream_id)
-    }, [])
+        console.log(videoPlayer.current)
+        if (videoPlayer.current) {
+
+            videoPlayer.current["style"].width = '100%'
+
+            videoPlayer.current.controls = false;
+
+            if (videoPlayer.current.canPlayType('video/mp4')) {
+                videoPlayer.current.setAttribute('src', '/data/video-stream/' + stream_id);
+            videoPlayer.current.play()
+            }
+        }
+
+
+    }, [videoPlayer])
+
 
     return <div className="video-player">
         <div id="user-info">
         </div>
         <div id="stream">
+            <video ref={videoPlayer}></video>
         </div>
     </div>
 }

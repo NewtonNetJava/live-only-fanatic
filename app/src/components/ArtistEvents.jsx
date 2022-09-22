@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useConcertData } from "../context/EventContext";
-import useFetch from "../hooks/useFetch";
 import Card from "./Card";
 
 export default function ArtistEvents(props) {
   const [events, setEvents] = useState([]);
   const id = parseInt(props["id"]);
-
   const { data: concerts, error, isPending, getEvents } = useConcertData();
+
   useEffect(() => {
     getEvents();
   }, []);
@@ -19,7 +17,7 @@ export default function ArtistEvents(props) {
       setEvents(concerts.filter((event) => event.artist_id === id));
     }
     void load();
-  }, [concerts]);
+  }, [concerts, id]);
 
   return (
     <>

@@ -80,7 +80,7 @@ function EventDetails() {
               <p className="event-info-column">Location: {event.location}</p>
               <p className="event-info-column">Date: {formatStartDate}</p>
               <p className="event-info-column">Venue: {event.venue_name}</p>
-              <DirectionButton id={event.venue_id}/>
+              <DirectionButton id={event.venue_id} />
             </div>
             <div className="buy-ticket">
               {event.venue_name !== "ONLINE" && (
@@ -144,7 +144,7 @@ function EventDetails() {
                     </>
                   ) : (
                     <div>
-                      <p>Login to buy tickets</p>
+                      <p id="not-logged-in">Login to buy tickets</p>
                     </div>
                   )}
                 </>

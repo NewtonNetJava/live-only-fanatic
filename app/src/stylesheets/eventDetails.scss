@@ -51,7 +51,6 @@ section#event{
             max-width: 720px;
             background-color: #F0F0F1;
             flex-grow: 4;
-            min-height: 30vh;
             padding: 32px 48px;
             display: flex;
             justify-content: space-between;
@@ -69,6 +68,13 @@ section#event{
         }
         
         .buy-ticket{
+
+            div>p{
+                font-size: 110%;
+                font-weight: bold;
+                color: $orange;
+            }
+            
             .buy-container{
                 display: flex;
                 .quantity-counter{
@@ -76,7 +82,6 @@ section#event{
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    // width: 10vw;
                     background-color: $yellow;
                     padding: 4px 8px;
                     
@@ -84,6 +89,7 @@ section#event{
                       
                         &:hover{
                             color: $dark;
+                            cursor: pointer;
                         }
                     }
 
@@ -103,6 +109,11 @@ section#event{
                     justify-content: center;
                     align-items: center;
                     background-color: $yellow;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    
                     img#cart{
                         width: 24px;
                         height: 24px;

@@ -16,6 +16,7 @@ export default function (props) {
         if (!currentSong) return
 
         audioPlayer.src = '/data/audio-stream/' + currentSong
+        audioPlayer.volume = 0.1;
         void audioPlayer.play()
     }
 

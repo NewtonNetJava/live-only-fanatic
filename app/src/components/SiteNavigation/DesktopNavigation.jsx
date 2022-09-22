@@ -12,7 +12,7 @@ export const links = [
 ];
 
 export const profileSubLinks = [
-  { href: "/my-tickets", name: "My tickets" },
+  { href: "/my-tickets", name: "My Tickets" },
   { href: "/profile", name: "My Profile" },
 ];
 

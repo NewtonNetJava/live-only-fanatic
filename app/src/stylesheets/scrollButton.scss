@@ -1,0 +1,18 @@
+.scrollButton {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background-color: $white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+    img {
+        object-fit: contain;
+        padding: 8px;
+          width: inherit;
+    height: inherit;
+    }
+}

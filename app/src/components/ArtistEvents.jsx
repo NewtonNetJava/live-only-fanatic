@@ -28,13 +28,7 @@ export default function ArtistEvents(props) {
         {isPending && <div>Loading...</div>}
         {events &&
           events.map((concert) => (
-            <Link
-              to={{ pathname: `/events/${concert.id}` }}
-              state={{ concert: concert }}
-              key={concert.id}
-            >
-              <Card concert={concert} />
-            </Link>
+            <Card concert={concert} />
           ))}
       </div>
     </>

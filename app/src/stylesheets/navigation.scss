@@ -13,7 +13,10 @@
     display: flex;
     align-items: center;
     gap: 24px;
-   
+
+    &:hover{
+        cursor: pointer;
+    }
 
     &__link{
         color: $white;
@@ -24,6 +27,12 @@
             text-underline-offset: 8px;
             color: rgb(230, 126, 97);
             position: relative;
+        }
+    }
+    
+    .sub-navigation>button{
+        &:hover{
+            cursor: pointer;
         }
     }
 
@@ -46,5 +55,4 @@
             color:rgb(230, 126, 97);
          }
      }
-
 }

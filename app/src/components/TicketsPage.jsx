@@ -1,11 +1,13 @@
 import useFetch from "../hooks/useFetch";
 import Ticket from "./Tickets";
-import { useEffect } from 'react';
+import { useEffect, useContext, useState } from 'react';
+import GlobalContext from "../context/GlobalContext";
 
 function TicketsPage() {
     const { error, isPending, data: tickets } = useFetch("/data/user_tickets_details");
+    const { auth } = useContext(GlobalContext);
+    const [filteredTickets, setFilteredTickets] = useState([]);
 
-    console.log(tickets);
 
     useEffect(() => {
         async function load() {
@@ -16,24 +18,52 @@ function TicketsPage() {
                 window.location.replace("http://127.0.0.1:5173/");
             } if (rawResponse.ok) {
                 let response = await rawResponse.json();
-                setUserId(response.id)
+
             }
         }
         load()
     }, [])
+    console.log(tickets);
+    useEffect(() => {
+        setTimeout(() => {
+            function filterTickets() {
+                if (tickets) {
+                    const filTickets = tickets.filter(ticket => ticket.user_id == auth.id)
+                    setFilteredTickets(filTickets)
+                }
+            }
+            filterTickets()
+        }, 100)
+    }, [tickets])
 
+
+
+    console.log(filteredTickets)
+
+    // if (!filteredTickets) {
+    //     return <>
+    //         <div className="card-container">
+    //             <h1>My Tickets No platipussy</h1>
+    //         </div>
+    //     </>
+    // }
     return (
         <>
             <h1 className="ticket-header">My tickets</h1>
             <div className="container">
-                <div className="card-container">
-                    {error && <div>{error}</div>}
-                    {isPending && <div>Loading...</div>}
-                    {tickets &&
-                        tickets.map((ticket) => <Ticket key={ticket} props={ticket} />)}
-                </div>
+                {auth.loggedIn && (
+                    <div className="card-container">
+                        {error && <div>{error}</div>}
+                        {isPending && <div>Loading...</div>}
+                        {filteredTickets &&
+                            filteredTickets.map((ticket) => <Ticket key={ticket} props={ticket} />)}
+                    </div>
+                )}
+
             </div>
         </>
     );
+
+
 }
 export default TicketsPage;

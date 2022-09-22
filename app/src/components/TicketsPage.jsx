@@ -12,7 +12,6 @@ function TicketsPage() {
     useEffect(() => {
         async function load() {
             let rawResponse = await fetch('/data/login')
-            console.log(rawResponse.status.type);
             if (rawResponse.status === 401) {
                 alert("Sign in to display your ticket(s)!");
                 window.location.replace("http://127.0.0.1:5173/");
@@ -23,7 +22,7 @@ function TicketsPage() {
         }
         load()
     }, [])
-    console.log(tickets);
+
     useEffect(() => {
         setTimeout(() => {
             function filterTickets() {
@@ -36,17 +35,6 @@ function TicketsPage() {
         }, 100)
     }, [tickets])
 
-
-
-    console.log(filteredTickets)
-
-    // if (!filteredTickets) {
-    //     return <>
-    //         <div className="card-container">
-    //             <h1>My Tickets No platipussy</h1>
-    //         </div>
-    //     </>
-    // }
     return (
         <>
             <h1 className="ticket-header">My tickets</h1>

@@ -13,6 +13,7 @@ import RouteGuard from "./components/RouteGard";
 import { EventContext } from "./context/EventContext";
 import LivestreamPage from "./components/LivestreamPage";
 import VenueDetails from "./components/VenueDetails";
+import BackToTopButton from "./components/BackToTopButton";
 import VenuePage from "./components/VenuePage";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <EventContext>
           <BrowserRouter>
             <Nav />
+            <BackToTopButton />
             <Routes>
               <>
                 <Route path="/" element={<Homepage />} />

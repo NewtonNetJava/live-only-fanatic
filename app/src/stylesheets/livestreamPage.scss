@@ -1,0 +1,28 @@
+.livestream{
+    &__content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__title{
+        padding: 8px;
+        background-color: $dark;
+        width: 100%;
+        text-align: center;
+    }
+    .video{
+        margin: 16px 0;
+
+        .video-player{
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+
+}
+    .temp-video{
+        background-color: blue;
+        width: 894px; 
+        height: 503px;
+    }

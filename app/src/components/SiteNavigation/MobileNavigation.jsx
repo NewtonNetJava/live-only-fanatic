@@ -1,10 +1,8 @@
 import { React, useContext, useState } from "react";
 import Hamburger from "../Hamburger";
 import { links, profileSubLinks } from "./DesktopNavigation";
-import searchSvg from "../../assets/search.svg";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar";
-import SignUp from "../SignUp";
 import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 import GlobalContext from "../../context/GlobalContext";
 import Homebutton from "../HomeButton";

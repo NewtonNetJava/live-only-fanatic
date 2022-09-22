@@ -26,7 +26,7 @@ export default function Directions(props) {
             }
         }
         load()
-    },[direction])
+    },[direction, id])
 
     if (!venue.direction) return <></>
     

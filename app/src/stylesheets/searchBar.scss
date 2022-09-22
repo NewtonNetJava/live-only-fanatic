@@ -53,6 +53,7 @@ input:focus {
     position: absolute;
     top: 40px;
     align-self: center;
+    z-index: 50;
 
     .dataItem {
         display: flex;

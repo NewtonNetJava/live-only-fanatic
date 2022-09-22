@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
+import useDidMountEffect from "../hooks/useDidMountEffect";
 
 function OrderConfirmation() {
   const { auth } = useContext(GlobalContext);
   const [data, setData] = useState({});
+
   const fetchData = async () => {
     let response = await fetch("/data/checkout");
     if (response.ok) {
@@ -43,16 +45,31 @@ function OrderConfirmation() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      postData();
-    }, 1000);
-  }, [data]);
+  useDidMountEffect(postData, [data]);
+
+  console.log(data);
 
   return (
     <div className="container" id="order">
       <div className="order-content">
-        <h1>Order confirmation</h1>
+        <h1>
+          Thank you for ordering{auth.first_name && ", "} {auth.first_name}!
+        </h1>
+        <div>
+          {data.checkoutSession?.line_items.data.map((item, index) => {
+            return (
+              <div key={index}>
+                <p>
+                  {item.description} x {item.quantity}
+                </p>
+                <hr style={{ margin: "8px 0" }} />
+                <p style={{ fontSize: "18px" }}>
+                  Total: {item.amount_total / 100} {item.currency.toUpperCase()}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

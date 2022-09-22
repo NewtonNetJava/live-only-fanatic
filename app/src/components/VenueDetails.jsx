@@ -40,7 +40,7 @@ export default function () {
     }
 
     return <>
-        <div id="venue-page">
+        <div id="venue-details">
             <section className="header">
                 <h1>{venue.name}</h1>
                 <div id="venue-info">

@@ -37,33 +37,13 @@ module.exports = function (server, db) {
       ) {
         const numTickets = checkoutSession.line_items.data[0].quantity;
         const ticketId = checkoutSession.metadata.ticket_id;
-        const userHasTickets = checkIfUserHasTickets(
-          ticketId,
-          request.session.user.id
-        );
-        if (!userHasTickets) {
-          reduceTicketQuantity(ticketId, numTickets);
-        }
+        reduceTicketQuantity(ticketId, numTickets);
       }
       res.json({ checkoutSession });
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
   });
-
-  function checkIfUserHasTickets(ticketId, userId) {
-    const query = `SELECT true 
-    FROM user_tickets
-    WHERE ticket = @ticketId AND user = @userId`;
-    try {
-      const result = db.prepare(query).run({ ticketId, userId });
-      console.log(result);
-      return true;
-    } catch (e) {
-      console.error(e);
-    }
-    return false;
-  }
 
   function reduceTicketQuantity(id, numTickets) {
     const query = `UPDATE tickets

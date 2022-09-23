@@ -4,7 +4,6 @@ import {useEffect, useRef, useState} from "react";
 export default function ({stream_id}) {
     const videoPlayer = useRef()
     useEffect(() => {
-        console.log(videoPlayer.current)
         if (videoPlayer.current) {
 
             videoPlayer.current["style"].width = '100%'

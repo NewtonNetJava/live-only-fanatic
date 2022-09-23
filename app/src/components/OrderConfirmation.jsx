@@ -11,7 +11,6 @@ function OrderConfirmation() {
     if (response.ok) {
       response = await response.json();
       setData(response);
-      console.log(response);
     }
   };
 
@@ -46,8 +45,6 @@ function OrderConfirmation() {
   }, []);
 
   useDidMountEffect(postData, [data]);
-
-  console.log(data);
 
   return (
     <div className="container" id="order">

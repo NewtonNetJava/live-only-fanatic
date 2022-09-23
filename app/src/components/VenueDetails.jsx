@@ -44,7 +44,7 @@ export default function () {
             <section className="header">
                 <h1>{venue.name}</h1>
                 <div id="venue-info">
-                    <DirectionButton id={parseInt(id)} />
+                    <DirectionButton id={id} />
                     <span id="address">
                         {venue.location}
                     </span>

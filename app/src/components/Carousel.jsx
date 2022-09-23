@@ -48,10 +48,8 @@ export default function Carousel(props) {
 
     useEffect(() => {
         setItem(items[index])
-        console.log(index)
     }, [index])
 
-    console.log(uid)
     if (!item) return <></>
 
     if (style === Styles.Buttons) return <div className={'carousel'}>

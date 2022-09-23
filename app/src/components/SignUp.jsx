@@ -29,7 +29,6 @@ export default function ({ setIsModalOpen, setModalType }) {
     e.preventDefault();
 
     if (password !== verificationPassword) {
-      console.log("pw failed");
       return handlePasswordValidation();
     }
 

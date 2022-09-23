@@ -8,9 +8,7 @@ export default function CarouselCard(props) {
         <Link to={type + id} id={id}>
             <img src={image} alt=" image"/>
         </Link>
-        <Link to={type}>
-            <button>Click me!</button>
-        </Link>
+        
     </div>
 
 }

@@ -36,6 +36,13 @@
         }
     }
 
+    button{
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
 }
 
 .sub-navigation {

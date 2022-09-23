@@ -28,7 +28,7 @@ function EventDetails() {
 
     const payload = {
       cancelUrl: window.location.href,
-      successUrl: "http://localhost:5173/order-confirmation",
+      successUrl: window.location.href+"/order-confirmation",
       line_items: [
         {
           price_data: {

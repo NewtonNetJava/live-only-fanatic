@@ -15,7 +15,7 @@ export default function ({ setIsModalOpen, setModalType }) {
   const containerRef = useRef(null);
 
   useClickOutside(containerRef, () => {
-    setIsModalOpen(false),
+    setIsModalOpen(false)
     setModalType(LOGIN)
   })
 
@@ -55,8 +55,7 @@ export default function ({ setIsModalOpen, setModalType }) {
         <button
           className="login-form__close-btn"
           onClick={() => {
-            setIsModalOpen(false),
-            setModalType(LOGIN)
+            setIsModalOpen(false);setModalType(LOGIN)
           }}
         >
           x

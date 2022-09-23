@@ -1,4 +1,6 @@
-const Tickets = ({ props }) => {
+// noinspection JSUnresolvedVariable
+
+const Tickets = ({props}) => {
     const data = props;
     const online = data.venue_location === "ONLINE"
     const image = data.concert_image ?? data.artist_image;
@@ -9,12 +11,12 @@ const Tickets = ({ props }) => {
             <div className="ticket">
                 <div className="text">
                     <div className="header">
-                        <img src={image} alt={data.artist_name} />
+                        <img src={image} alt={data.artist_name}/>
                     </div>
                     {data.quantity > 1 && (
                         <p>Tickets for: </p>
                     )}
-                    {data.quantity == 1 && (
+                    {data.quantity === 1 && (
                         <p>Ticket for: </p>
                     )}
                     <h1 className="title">{data.artist_name}</h1>
@@ -30,14 +32,10 @@ const Tickets = ({ props }) => {
                         <span>
                             <p className="ticketInfo">{data.first_name} {data.last_name}</p>
                             <p className="ticketInfo">Quantity: {data.quantity}</p>
-
                         </span>
                     )}
-
                 </div>
-
             </div>
-
         </>
     );
 };

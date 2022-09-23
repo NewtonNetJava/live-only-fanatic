@@ -39,7 +39,7 @@ function SearchBar({ placeholder }) {
 
     useEffect(() => {
         function run() {
-            if (filteredArtists.lenght !== 0 || filteredVenues.length !== 0) setHasMatches(true)
+            if (filteredArtists.length !== 0 || filteredVenues.length !== 0) setHasMatches(true)
             else setHasMatches(false);
         }
         void run()

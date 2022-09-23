@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-export const ConcertContext = createContext();
+export const ConcertContext = createContext(undefined);
 
 export const useConcertData = () => useContext(ConcertContext);
 

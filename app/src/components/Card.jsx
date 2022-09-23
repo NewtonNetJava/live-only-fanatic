@@ -3,9 +3,8 @@ import ArrowIcon from "../assets/arrow-forward.svg";
 import { Link } from "react-router-dom";
 
 const Card = ({ concert }) => {
-  const concert_id = concert["id"];
   const venue_name = concert["venue_name"];
-  const online = venue_name == "ONLINE";
+  const online = venue_name === "ONLINE";
   const startTime = new Date(concert["event_start"])
     .toString()
     .substring(0, 21);

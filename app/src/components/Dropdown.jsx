@@ -1,7 +1,5 @@
-import {useState} from "react";
 
 export default function ({values, handleClick}) {
-    const [isOpen, setIsOpen] = useState(false);
     return <>
         <div className="dropdown">
             <div className="dropdown__header"></div>

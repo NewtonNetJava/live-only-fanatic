@@ -1,7 +1,6 @@
 const encrypt = require("../modules/encrypt.js");
 
 module.exports = function (server, db) {
-  // logga in
   server.post("/data/login", (request, response) => {
     request.session.passwordAttempts = request.session.passwordAttempts || 1;
 

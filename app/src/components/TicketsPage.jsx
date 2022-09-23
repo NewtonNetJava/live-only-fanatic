@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 import useFetch from "../hooks/useFetch";
 import Ticket from "./Tickets";
 import { useEffect, useContext, useState } from "react";
@@ -14,16 +16,14 @@ function TicketsPage() {
 
   useEffect(() => {
     async function load() {
-      let rawResponse = await fetch("/data/login");
+      const rawResponse = await fetch("/data/login");
+
       if (rawResponse.status === 401) {
         alert("Sign in to display your ticket(s)!");
-        window.location.replace("http://127.0.0.1:5173/");
-      }
-      if (rawResponse.ok) {
-        let response = await rawResponse.json();
+        window.location.replace("/");
       }
     }
-    load();
+    void load();
   }, []);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function TicketsPage() {
       function filterTickets() {
         if (tickets) {
           const filTickets = tickets.filter(
-            (ticket) => ticket.user_id == auth.id
+            (ticket) => ticket.user_id === auth.id
           );
           setFilteredTickets(filTickets);
         }

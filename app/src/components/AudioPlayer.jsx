@@ -5,7 +5,7 @@ const audioPlayer = new Audio()
 audioPlayer.controls = true
 
 
-//Send in an artist id when calling this componenet
+//Send in an artist id when calling this component
 
 export default function (props) {
     const id = parseInt(props['id'])

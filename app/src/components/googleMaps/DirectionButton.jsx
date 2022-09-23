@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import ArrowCircleRight from "../../assets/arrow-circle-right.svg";
 import MapModal from "./MapModal";
 
@@ -12,9 +12,9 @@ export default function Directions(props) {
     const [isVisible, setIsVisible] = useState(false);
     const [direction, setDirection] = useState("");
     const [venue, setVenue] = useState({});
+    const map_view = useRef()
 
-    
-    
+
     useEffect(() => {
         async function load() {
             const rawResponse = await fetch('/data/venues');
@@ -22,22 +22,25 @@ export default function Directions(props) {
                 const response = await rawResponse.json();
                 setDirection(response.filter(event => event.id === id)[0].direction);
                 setVenue(response.filter(event => event.id === id)[0])
-                if(direction){
-                   document.getElementById('map-view').src = direction; 
+                if (direction && map_view) {
+
+                    map_view.src = direction;
                 }
             }
         }
-        load()
-    },[direction, id])
-    
+
+        void load()
+    }, [direction, id])
+
     if (!venue.direction) return <></>
-    
+
     return <>
         <div className="direction-button" onClick={() => setIsVisible(true)}>Get Directions
-            <img src={ArrowCircleRight} id="arrow-circle-right" alt="icon" />
+            <img src={ArrowCircleRight} id="arrow-circle-right" alt="icon"/>
         </div>
         <MapModal title="My Modal" onClose={() => setIsVisible(false)} isVisible={isVisible}>
-            <iframe id="map-view" src="" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe ref={map_view} id="map-view" src="" allowFullScreen="" loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"></iframe>
         </MapModal>
     </>
 

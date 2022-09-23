@@ -1,7 +1,6 @@
 import Card from "./Card";
 import { useConcertData } from "../context/EventContext";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 
 function EventsPage() {
   const { data: concerts, error, isPending, getEvents } = useConcertData();

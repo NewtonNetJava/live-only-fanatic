@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef } from "react";
 
 
 export default function ({stream_id}) {
@@ -13,7 +13,6 @@ export default function ({stream_id}) {
 
             if (videoPlayer.current.canPlayType('video/mp4')) {
                 videoPlayer.current.setAttribute('src', '/data/video-stream/' + stream_id.toString());
-            videoPlayer.current.play()
             }
         }
 

@@ -19,10 +19,10 @@ export default function ArtistPage() {
         setBio(response.bio);
       }
     }
-    load();
+    void load();
   }, [id]);
 
-  // If the fetching of the artist's name etc is not done yet, do not render anything..
+  // If the fetching of the artist's name etc. is not done yet, do not render anything..
   if (!id) return <></>;
 
   return (

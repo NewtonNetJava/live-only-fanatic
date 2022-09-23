@@ -16,7 +16,7 @@ export default function () {
                 setVenues(response.filter(venue => venue.name !== 'ONLINE'))
             }
         }
-        load()
+        void load()
     }, [venues])
 
     if (!venues) return <></>

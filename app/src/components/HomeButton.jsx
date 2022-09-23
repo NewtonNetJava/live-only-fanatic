@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Homebutton() {
+export default function () {
   return (
     <>
       <div id="home">

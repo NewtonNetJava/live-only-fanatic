@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 import GlobalContext from "../context/GlobalContext";
 import { useContext, useState } from "react";
 import { useEffect } from "react";

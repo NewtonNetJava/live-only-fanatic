@@ -1,10 +1,10 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {useConcertData} from "../context/EventContext";
 import VideoComponent from "./VideoComponent";
 import useFetch from "../hooks/useFetch.jsx";
 
-function LivestreamPage() {
+export default function () {
     const {data, getEvents} = useConcertData();
     const {id} = useParams();
     useEffect(() => getEvents(), []);
@@ -22,7 +22,7 @@ function LivestreamPage() {
             <div className="livestream">
                 <div className="livestream__content">
                     <div className="video">
-                        <VideoComponent stream_id={stream.stream_id}/>
+                        <VideoComponent stream_id={stream.stream_id} concert_id={id}/>
                     </div>
                     <div className="livestream__title">
                         <h1>{event.artist_name}</h1>
@@ -33,4 +33,3 @@ function LivestreamPage() {
     );
 }
 
-export default LivestreamPage;

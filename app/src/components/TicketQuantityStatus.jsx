@@ -5,9 +5,9 @@ function TicketQuantityStatus({ quantity }) {
     <>
       {quantity === 0 && <span>sold out</span>}
       {quantity < 20 && quantity > 0 && (
-        <img src={RedStatus} alt="greenstatus" />
+        <img src={RedStatus} alt="green status" />
       )}
-      {quantity > 20 && <img src={GreenStatus} alt="redstatus" />}
+      {quantity > 20 && <img src={GreenStatus} alt="red status" />}
     </>
   );
 }

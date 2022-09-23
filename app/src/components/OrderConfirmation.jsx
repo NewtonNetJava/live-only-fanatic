@@ -17,8 +17,8 @@ function OrderConfirmation() {
   const postData = async () => {
     if (!data) return <></>;
     if (
-      data.checkoutSession.payment_status == "paid" &&
-      data.checkoutSession.status == "complete"
+      data.checkoutSession.payment_status === "paid" &&
+      data.checkoutSession.status === "complete"
     ) {
       const payload = {
         user: auth.id,
@@ -31,17 +31,12 @@ function OrderConfirmation() {
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(payload),
       };
-      let response = await fetch("/data/users_tickets", requestOptions);
-      if (response.ok) {
-        response = await response.json();
-      } else {
-        setError(response.statusText);
-      }
+      await fetch("/data/users_tickets", requestOptions);
     }
   };
 
   useEffect(() => {
-    fetchData();
+  void fetchData();
   }, []);
 
   useDidMountEffect(postData, [data]);

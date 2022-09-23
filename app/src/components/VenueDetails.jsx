@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useConcertData } from "../context/EventContext";
+import {useEffect, useState} from "react";
+import {Link, useParams} from "react-router-dom";
+import {useConcertData} from "../context/EventContext";
 import Card from "./Card";
 import DirectionButton from './googleMaps/DirectionButton';
 
 export default function () {
 
-    const { id } = useParams()
+    const {id} = useParams()
     const [venue, setVenue] = useState({})
     const [venueEvents, setVenueEvents] = useState([])
 
@@ -15,16 +15,17 @@ export default function () {
             const rawResponse = await fetch('/data/venues/')
             if (rawResponse.ok) {
                 const response = await rawResponse.json()
-                const filteredResponse = response.filter(venue => venue.id == id)
+                const filteredResponse = response.find(venue => venue.id.toString() === id)
                 if (filteredResponse !== 'ONLINE') {
-                    setVenue(filteredResponse[0])
+                    setVenue(filteredResponse)
                 }
             }
         }
-        getVenues()
-    }, [id])
 
-    const { data: concerts, error, isPending, getEvents } = useConcertData();
+        void getVenues()
+    }, [id,venue])
+
+    const {data: concerts, error, isPending, getEvents} = useConcertData();
 
     useEffect(() => {
         getEvents();
@@ -44,7 +45,7 @@ export default function () {
             <section className="header">
                 <h1>{venue.name}</h1>
                 <div id="venue-info">
-                    <DirectionButton id={id} />
+                    <DirectionButton id={id}/>
                     <span id="address">
                         {venue.location}
                     </span>
@@ -58,11 +59,11 @@ export default function () {
                     {concerts &&
                         venueEvents.map((concert) => (
                             <Link
-                                to={{ pathname: `/events/${concert.id}` }}
-                                state={{ concert: concert }}
+                                to={{pathname: `/events/${concert.id}`}}
+                                state={{concert: concert}}
                                 key={concert.id}
                             >
-                                <Card concert={concert} />
+                                <Card concert={concert}/>
                             </Link>
                         ))}
                 </div>

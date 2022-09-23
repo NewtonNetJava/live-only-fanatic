@@ -1,7 +1,7 @@
 import Carousel from "./Carousel.jsx";
 import useFetch from "../hooks/useFetch.jsx";
 
-export default function HomePage() {
+export default function () {
 
     const {
         data: concerts
@@ -15,8 +15,8 @@ export default function HomePage() {
     return (
         <>
             <h1 style={{display:"none"}}>Homepage</h1>
-            <Carousel items={onlineConcerts} style={'Counter'} type={'/events/'} uid={'online'}/>
-            <Carousel items={offlineConcerts} style={'Counter'} type={'/events/'} uid={'offline'}/>
+            <Carousel items={onlineConcerts}  type={'/events/'} uid={'online'}/>
+            <Carousel items={offlineConcerts}  type={'/events/'} uid={'offline'}/>
         </>
     );
 }

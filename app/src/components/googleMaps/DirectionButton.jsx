@@ -12,10 +12,12 @@ export default function Directions(props) {
     const [isVisible, setIsVisible] = useState(false);
     const [direction, setDirection] = useState("");
     const [venue, setVenue] = useState({});
+
+    
     
     useEffect(() => {
         async function load() {
-            const rawResponse = await fetch('/data/concert_details');
+            const rawResponse = await fetch('/data/venues');
             if (rawResponse.ok) {
                 const response = await rawResponse.json();
                 setDirection(response.filter(event => event.id === id)[0].direction);
@@ -27,7 +29,7 @@ export default function Directions(props) {
         }
         load()
     },[direction, id])
-
+    
     if (!venue.direction) return <></>
     
     return <>

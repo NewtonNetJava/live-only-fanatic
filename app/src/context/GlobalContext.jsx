@@ -18,7 +18,6 @@ export const GlobalProvider = ({ children }) => {
     setIsLoading(true);
     const response = await fetch("/data/login");
     const result = await response.json();
-    console.log(result);
     setAuth(result);
     setIsLoading(false);
   };
@@ -31,7 +30,6 @@ export const GlobalProvider = ({ children }) => {
       body: JSON.stringify({ email, password }),
     });
     const result = await response.json();
-    console.log(result);
     setIsLoading(false);
     checkAuth();
   };
@@ -42,7 +40,6 @@ export const GlobalProvider = ({ children }) => {
       method: "delete",
     });
     const result = await response.json();
-    console.log(result);
     setIsLoading(false);
     setAuth({ loggedIn: false });
   };

@@ -17,7 +17,7 @@ function TicketsPage() {
       let rawResponse = await fetch("/data/login");
       if (rawResponse.status === 401) {
         alert("Sign in to display your ticket(s)!");
-        window.location.replace("http://127.0.0.1:5173/");
+        window.location.replace("/");
       }
       if (rawResponse.ok) {
         let response = await rawResponse.json();

@@ -1,7 +1,7 @@
 $banner-width: 100%;
-@media screen and (min-width: 1536px) {
+@media screen and (min-width: 1080px) {
   $banner-width: 1920px;
-  $banner-height: 370px;
+  $banner-height: 270px;
 }
 
 .carousel {
@@ -92,7 +92,7 @@ $banner-width: 100%;
         width: $banner-width;
         min-height: 120px;
         height: auto;
-        max-height: 370px;
+        max-height: 290px;
         transform-origin: center center;
         transition: transform 0.5s;
         justify-content: center;

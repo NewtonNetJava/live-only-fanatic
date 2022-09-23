@@ -26,7 +26,7 @@ function EventDetails() {
 
     const payload = {
       cancelUrl: window.location.href,
-      successUrl: "http://localhost:5173/order-confirmation",
+      successUrl: "http://localhost:3333/order-confirmation",
       line_items: [
         {
           price_data: {
@@ -152,8 +152,8 @@ function EventDetails() {
 
               {event.venue_name === "ONLINE" && (
                 <>
-                  <Link to={"/livestream/" + id} className="livestream-button">
-                    Watch livestream
+                  <Link to={"/livestream/" + id}>
+                    <button>Watch livestream</button>
                   </Link>
                 </>
               )}
